@@ -1,0 +1,26 @@
+@if (project(); as project) {
+  <article class="project-preview">
+    <div class="project-preview__content">
+      <div class="project-preview__meta"><span>{{ (index() + 1).toString().padStart(2, "0") }}</span><span>{{ project.eyebrow }}</span></div>
+      <h3><a [routerLink]="['/projects', project.slug]">{{ project.name }}</a></h3>
+      <p class="project-preview__summary">{{ project.summary }}</p>
+      <p class="project-preview__impact">{{ project.impact }}</p>
+      <ul class="tag-list" [attr.aria-label]="'Technologies utilisées pour ' + project.name">
+        @for (technology of project.stack; track technology) {
+          <li>{{ technology }}</li>
+        }
+      </ul>
+      <div class="project-preview__links">
+        <a class="text-link" [routerLink]="['/projects', project.slug]">Lire l’étude de cas <span aria-hidden="true">→</span></a>
+        <a class="text-link text-link--muted" [href]="project.repositoryUrl" target="_blank" rel="noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <a
+      class="project-preview__visual-link"
+      [routerLink]="['/projects', project.slug]"
+      [attr.aria-label]="'Voir l’étude de cas ' + project.name"
+    >
+      <app-project-visual [visual]="project.visual" />
+    </a>
+  </article>
+}

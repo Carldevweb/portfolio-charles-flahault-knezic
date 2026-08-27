@@ -1,0 +1,71 @@
+/* Contact and footer */
+:host {
+  display: block;
+}
+
+.contact {
+  padding-bottom: calc(var(--section-space) + 1rem);
+  background: var(--color-bg-elevated);
+}
+
+.contact__panel {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: clamp(3rem, 10vw, 9rem);
+  padding: clamp(2.5rem, 7vw, 5.5rem);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.contact h2 {
+  max-width: 40rem;
+  margin-bottom: 0;
+  font-size: var(--text-h2);
+}
+
+.contact__content {
+  align-self: end;
+}
+
+.contact__content>p {
+  margin-bottom: var(--space-6);
+  color: var(--color-text-soft);
+  font-size: var(--text-lg);
+}
+
+.contact__email {
+  display: inline-block;
+  margin-top: var(--space-6);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+.contact__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+@media (max-width: 64rem) {
+  .contact__panel {
+    grid-template-columns: 1fr;
+  }
+
+  .contact__content {
+    max-width: 42rem;
+  }
+}
+
+@media (max-width: 47.5rem) {
+  .contact__panel {
+    padding: 2rem 1.25rem;
+  }
+}
+
+@media (max-width: 32.5rem) {
+  .contact__actions .button {
+    width: 100%;
+  }
+}

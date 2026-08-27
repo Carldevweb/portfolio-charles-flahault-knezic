@@ -1,0 +1,101 @@
+:host {
+  display: block;
+}
+
+.project-preview {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: start;
+  gap: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.project-preview__content {
+  max-width: 54rem;
+}
+
+.project-preview__visual-link {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-lg);
+}
+
+.project-preview__visual-link:hover app-project-visual {
+  transform: translateY(-5px);
+  --project-visual-border-color: rgb(124 131 255 / 35%);
+  --project-visual-shadow: 0 2rem 5rem rgb(0 0 0 / 30%);
+}
+
+.project-preview__meta {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: var(--space-5);
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.project-preview__meta span:first-child {
+  color: var(--color-accent);
+}
+
+.project-preview h3 {
+  margin-bottom: var(--space-5);
+  font-size: clamp(3rem, 5vw, 5.25rem);
+  font-weight: 650;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.project-preview h3 a:hover {
+  color: var(--color-accent);
+}
+
+.project-preview__summary {
+  max-width: 48rem;
+  color: var(--color-text-soft);
+  font-size: clamp(1.1rem, 1vw + 0.9rem, 1.35rem);
+  line-height: 1.65;
+}
+
+.project-preview__impact {
+  max-width: 44rem;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--color-accent);
+  color: var(--color-text-soft);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: var(--space-6) 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag-list li {
+  padding: 0.45rem 0.75rem;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-pill);
+  background: rgb(124 131 255 / 5%);
+  color: var(--color-text-soft);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.project-preview__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+}
+
+@media (max-width: 47.5rem) {
+  .project-preview h3 {
+    font-size: 2.8rem;
+  }
+}

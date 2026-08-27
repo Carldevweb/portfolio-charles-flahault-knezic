@@ -1,0 +1,13 @@
+<section class="section journey" id="parcours" aria-labelledby="journey-title">
+  <div class="container journey__grid">
+    <app-section-heading headingId="journey-title" eyebrow="Parcours" title="De la formation à la réalisation d’applications complètes." />
+    <ol class="timeline">
+      @for (item of journey; track item.period + item.title) {
+        <li>
+          <span class="timeline__period">{{ item.period }}</span>
+          <div><h3>{{ item.title }}</h3><p class="timeline__place">{{ item.place }}</p><p>{{ item.description }}</p></div>
+        </li>
+      }
+    </ol>
+  </div>
+</section>

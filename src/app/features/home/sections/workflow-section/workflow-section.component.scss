@@ -1,0 +1,70 @@
+/* Workflow */
+:host {
+  display: block;
+}
+
+.workflow {
+  background: var(--color-bg-elevated);
+}
+
+.workflow__steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border);
+  list-style: none;
+}
+
+.workflow__steps li {
+  min-height: 20rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border-right: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.workflow__steps span {
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+.workflow__steps h3 {
+  margin: 6rem 0 1rem;
+  font-size: 1.35rem;
+}
+
+.workflow__steps p {
+  margin-bottom: 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 64rem) {
+  .workflow__steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .workflow__steps li {
+    min-height: 17rem;
+  }
+
+  .workflow__steps h3 {
+    margin-top: 4rem;
+  }
+}
+
+@media (max-width: 47.5rem) {
+  .workflow__steps {
+    grid-template-columns: 1fr;
+  }
+
+  .workflow__steps li {
+    min-height: auto;
+  }
+
+  .workflow__steps h3 {
+    margin-top: 3rem;
+  }
+}

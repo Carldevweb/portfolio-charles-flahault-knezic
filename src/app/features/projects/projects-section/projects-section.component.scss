@@ -1,0 +1,13 @@
+/* Projects */
+:host {
+  display: block;
+}
+
+.projects-section {
+  background: var(--color-bg-elevated);
+}
+
+.projects-list {
+  display: grid;
+  gap: clamp(6rem, 13vw, 11rem);
+}

@@ -1,0 +1,22 @@
+<section class="section stack-section" id="stack" aria-labelledby="stack-title">
+  <div class="container">
+    <app-section-heading
+      headingId="stack-title"
+      eyebrow="Technologies"
+      title="Les outils utilisés pour construire mes applications."
+      description="Java et Spring Boot portent les règles métier et la sécurité. Angular construit les interfaces, tandis que PostgreSQL conserve les données."
+    />
+    <div class="stack-grid">
+      @for (group of stackGroups; track group.name) {
+        <article class="stack-group">
+          <header><h3>{{ group.name }}</h3><p>{{ group.description }}</p></header>
+          <ul [attr.aria-label]="'Technologies ' + group.name">
+            @for (technology of group.technologies; track technology) {
+              <li>{{ technology }}</li>
+            }
+          </ul>
+        </article>
+      }
+    </div>
+  </div>
+</section>

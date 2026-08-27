@@ -1,0 +1,98 @@
+@if (project(); as project) {
+  <article class="case-study">
+    <header class="case-study__hero">
+      <div class="container">
+        <a class="back-link" routerLink="/" fragment="projets"><span aria-hidden="true">←</span> Tous les projets</a>
+        <div class="case-study__heading">
+          <div>
+            <p class="eyebrow">{{ project.eyebrow }} · {{ project.year }}</p>
+            <h1>{{ project.name }}</h1>
+            <p>{{ project.summary }}</p>
+          </div>
+          <dl class="case-study__facts">
+            <div><dt>Rôle</dt><dd>{{ project.role }}</dd></div>
+            <div><dt>Statut</dt><dd>{{ project.status }}</dd></div>
+            <div><dt>Stack</dt><dd>{{ project.stack.slice(0, 4).join(" · ") }}</dd></div>
+          </dl>
+        </div>
+        <div class="case-study__actions">
+          <a class="button button--primary" [href]="project.repositoryUrl" target="_blank" rel="noreferrer">Voir le dépôt <span aria-hidden="true">↗</span></a>
+          <a class="button button--secondary" [href]="getEmailComposeUrl(project.name)" target="_blank" rel="noreferrer">Échanger sur le projet</a>
+        </div>
+      </div>
+    </header>
+
+    <div
+      class="container case-study__visual"
+      [class.case-study__visual--villa]="project.slug === 'villa-deste'"
+    >
+      <app-project-visual [visual]="project.detailVisual ?? project.visual" />
+    </div>
+
+    <div class="container case-study__body">
+      <section class="case-section">
+        <p class="case-section__label">01 · Contexte</p>
+        <div><h2>Le besoin à l’origine du projet</h2>@for (paragraph of project.context; track paragraph) { <p>{{ paragraph }}</p> }</div>
+      </section>
+      <section class="case-section">
+        <p class="case-section__label">02 · Problème</p>
+        <div><h2>Les problèmes à résoudre</h2>@for (paragraph of project.problem; track paragraph) { <p>{{ paragraph }}</p> }</div>
+      </section>
+      <section class="case-section case-section--wide">
+        <p class="case-section__label">03 · Architecture</p>
+        <div>
+          <h2>Répartition des responsabilités techniques</h2>
+          <div class="architecture-grid">
+            @for (item of project.architecture; track item.title; let index = $index) {
+              <article><span>{{ (index + 1).toString().padStart(2, "0") }}</span><h3>{{ item.title }}</h3><p>{{ item.description }}</p></article>
+            }
+          </div>
+        </div>
+      </section>
+      <section class="case-section">
+        <p class="case-section__label">04 · Fonctionnalités</p>
+        <div><h2>Fonctionnalités réalisées</h2><ul class="feature-list">@for (feature of project.features; track feature) { <li>{{ feature }}</li> }</ul></div>
+      </section>
+      <section class="case-section case-section--wide">
+        <p class="case-section__label">05 · Décisions techniques</p>
+        <div>
+          <h2>Des problèmes techniques aux solutions mises en place</h2>
+          <div class="challenge-list">
+            @for (challenge of project.challenges; track challenge.title) {
+              <article>
+                <h3>{{ challenge.title }}</h3>
+                <div><span>Problème</span><p>{{ challenge.problem }}</p></div>
+                <div><span>Solution</span><p>{{ challenge.solution }}</p></div>
+              </article>
+            }
+          </div>
+        </div>
+      </section>
+      <section class="case-section">
+        <p class="case-section__label">06 · Résultat</p>
+        <div><h2>Ce que le projet permet aujourd’hui</h2><ul class="result-list">@for (result of project.results; track result) { <li>{{ result }}</li> }</ul></div>
+      </section>
+      <section class="case-section">
+        <p class="case-section__label">07 · Apprentissages</p>
+        <div><h2>Principaux enseignements</h2><ul class="learning-list">@for (learning of project.learnings; track learning) { <li>{{ learning }}</li> }</ul></div>
+      </section>
+      @if (project.nextSteps?.length) {
+        <section class="case-section">
+          <p class="case-section__label">08 · Prochaines étapes</p>
+          <div><h2>Suite prévue pour le projet</h2><ul class="result-list">@for (step of project.nextSteps; track step) { <li>{{ step }}</li> }</ul></div>
+        </section>
+      }
+    </div>
+
+    @if (nextProject(); as nextProject) {
+      <aside class="next-project">
+        <div class="container">
+          <p class="eyebrow">Projet suivant</p>
+          <a [routerLink]="['/projects', nextProject.slug]">
+            <span>{{ nextProject.eyebrow }}</span><strong>{{ nextProject.name }}</strong><i aria-hidden="true">→</i>
+          </a>
+        </div>
+      </aside>
+    }
+  </article>
+}

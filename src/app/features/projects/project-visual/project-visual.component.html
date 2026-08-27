@@ -1,0 +1,40 @@
+@if (visual(); as visual) {
+  @if (visual.kind === "image") {
+    <figure
+      class="project-visual project-visual--image"
+      [class.project-visual--villa]="visual.src === '/projects/villa-cover.webp'"
+    >
+      <div class="project-visual__image-frame">
+        <img [src]="visual.src" [alt]="visual.alt" width="1600" height="900" loading="lazy" />
+      </div>
+    </figure>
+  } @else {
+    <figure class="project-visual project-visual--statunox" [attr.aria-label]="visual.alt">
+      <div class="status-dashboard">
+        <header>
+          <div><span class="status-dashboard__logo">S</span><strong>Statunox</strong></div>
+          <span class="status-dashboard__live"><i></i> Live</span>
+        </header>
+        <div class="status-dashboard__summary">
+          <div><span>Disponibilité</span><strong>99,98<small>%</small></strong></div>
+          <div><span>Temps de réponse</span><strong>184<small>ms</small></strong></div>
+          <div><span>Incidents ouverts</span><strong>0</strong></div>
+        </div>
+        <div class="status-dashboard__chart" aria-hidden="true">
+          <div class="chart-bars">
+            @for (height of chartHeights; track $index) {
+              <i [style.height.%]="height"></i>
+            }
+          </div>
+          <span>24 dernières heures</span>
+        </div>
+        <div class="status-dashboard__services">
+          <div><span><i class="status-dot"></i>API principale</span><strong>Opérationnel</strong><small>142 ms</small></div>
+          <div><span><i class="status-dot"></i>Site public</span><strong>Opérationnel</strong><small>216 ms</small></div>
+          <div><span><i class="status-dot"></i>Service e-mail</span><strong>Opérationnel</strong><small>194 ms</small></div>
+        </div>
+      </div>
+      <figcaption class="sr-only">Visualisation conceptuelle de Statunox avec des données d’exemple.</figcaption>
+    </figure>
+  }
+}

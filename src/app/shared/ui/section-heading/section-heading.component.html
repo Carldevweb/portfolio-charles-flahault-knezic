@@ -1,0 +1,7 @@
+<header class="section-heading">
+  <p class="eyebrow">{{ eyebrow() }}</p>
+  <h2 [id]="headingId()">{{ title() }}</h2>
+  @if (description()) {
+    <p class="section-heading__description">{{ description() }}</p>
+  }
+</header>

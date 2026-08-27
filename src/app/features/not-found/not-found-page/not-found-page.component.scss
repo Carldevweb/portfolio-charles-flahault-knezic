@@ -1,0 +1,23 @@
+:host {
+  display: block;
+}
+
+.not-found {
+  display: grid;
+  min-height: 70svh;
+  padding-block: var(--section-space);
+  align-content: center;
+  justify-items: start;
+}
+
+.not-found h1 {
+  margin-bottom: var(--space-5);
+  font-size: var(--text-h2);
+}
+
+.not-found>p:not(.eyebrow) {
+  max-width: 35rem;
+  margin-bottom: var(--space-6);
+  color: var(--color-text-soft);
+  font-size: var(--text-lg);
+}

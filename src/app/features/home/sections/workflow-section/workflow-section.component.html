@@ -1,0 +1,15 @@
+<section class="section workflow" id="methode" aria-labelledby="workflow-title">
+  <div class="container">
+    <app-section-heading
+      headingId="workflow-title"
+      eyebrow="Méthode de travail"
+      title="Du besoin utilisateur à une fonctionnalité vérifiée."
+      description="Chaque étape relie une attente concrète à une décision de conception, une implémentation et un contrôle du résultat."
+    />
+    <ol class="workflow__steps">
+      @for (step of workflow; track step[0]) {
+        <li><span>{{ step[0] }}</span><h3>{{ step[1] }}</h3><p>{{ step[2] }}</p></li>
+      }
+    </ol>
+  </div>
+</section>

@@ -1,0 +1,33 @@
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" routerLink="/" aria-label="Retour à l’accueil">
+      <span class="brand__mark" aria-hidden="true">CFK</span>
+    </a>
+
+    <nav class="desktop-nav" aria-label="Navigation principale">
+      @for (item of navigation; track item.href) {
+        <a [href]="item.href">{{ item.label }}</a>
+      }
+    </nav>
+
+    <a class="header-cta" [href]="profile.cvUrl" download>CV <span aria-hidden="true">↓</span></a>
+
+    <details class="mobile-nav" #mobileMenu (toggle)="onMobileMenuToggle($event)">
+      <summary
+        #mobileMenuToggle
+        [attr.aria-label]="mobileMenuOpen() ? 'Fermer le menu' : 'Ouvrir le menu'"
+        [attr.aria-expanded]="mobileMenuOpen()"
+        aria-controls="mobile-navigation"
+      >
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </summary>
+      <nav id="mobile-navigation" aria-label="Navigation mobile">
+        @for (item of navigation; track item.href) {
+          <a [href]="item.href" (click)="closeMobileMenu()">{{ item.label }}</a>
+        }
+        <a [href]="profile.cvUrl" download (click)="closeMobileMenu()">Télécharger le CV</a>
+      </nav>
+    </details>
+  </div>
+</header>

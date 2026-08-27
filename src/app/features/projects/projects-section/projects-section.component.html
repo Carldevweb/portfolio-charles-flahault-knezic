@@ -1,0 +1,15 @@
+<section class="section projects-section" id="projets" aria-labelledby="projects-title">
+  <div class="container">
+    <app-section-heading
+      headingId="projects-title"
+      eyebrow="Projets sélectionnés"
+      title="Trois applications, trois besoins concrets."
+      description="Chaque étude de cas présente le besoin, les fonctionnalités réalisées et les choix techniques qui permettent à l’application de fonctionner."
+    />
+    <div class="projects-list">
+      @for (project of projects; track project.slug; let index = $index) {
+        <app-project-preview [project]="project" [index]="index" />
+      }
+    </div>
+  </div>
+</section>

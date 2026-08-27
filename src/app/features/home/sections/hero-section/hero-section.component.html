@@ -1,0 +1,57 @@
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero__grid">
+    <div class="hero__content">
+      <p class="availability"><span aria-hidden="true"></span>{{ profile.availability }}</p>
+      <p class="hero__name">{{ profile.name }}</p>
+      <h1 id="hero-title">Développeur Full Stack<span>Java / Angular</span></h1>
+      <p class="hero__intro">{{ profile.introduction }}</p>
+      <div class="hero__actions">
+        <a class="button button--primary" href="#projets">Voir mes projets <span aria-hidden="true">↓</span></a>
+        <a class="button button--secondary" href="#contact">Me contacter</a>
+      </div>
+      <div class="hero__links" aria-label="Liens professionnels">
+        <a class="github-icon" [href]="profile.githubUrl" target="_blank" rel="noreferrer" aria-label="GitHub">
+          <span class="github-icon__svg" aria-hidden="true"></span>
+        </a>
+        <a class="linkedin-icon" [href]="profile.linkedinUrl" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <span class="linkedin-icon__svg" aria-hidden="true"></span>
+        </a>
+
+        <a class="cv-icon" [href]="profile.cvUrl" download aria-label="Télécharger le CV">
+          <img src="/icones/cv.svg" width="38" height="38" alt="" aria-hidden="true">
+        </a>
+
+      </div>
+    </div>
+
+    <div class="architecture-preview"
+      aria-label="Répartition des responsabilités dans une application développée par Charles">
+      <div class="architecture-preview__topbar">
+        <span>application.system</span>
+        <div aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+      <div class="architecture-preview__canvas">
+        <div class="architecture-node architecture-node--frontend">
+          <span>Interface</span><strong>Angular</strong><small>UX · TypeScript</small>
+        </div>
+        <span class="architecture-link" aria-hidden="true">REST</span>
+        <div class="architecture-node architecture-node--backend">
+          <span>API métier</span><strong>Spring Boot</strong><small>Security · JPA</small>
+        </div>
+        <span class="architecture-link" aria-hidden="true">SQL</span>
+        <div class="architecture-node architecture-node--database">
+          <span>Données</span><strong>PostgreSQL</strong><small>Schéma versionné</small>
+        </div>
+      </div>
+      <div class="architecture-preview__footer">
+        <span><i class="status-dot"></i>Responsabilités séparées</span>
+        <span>Tests · Versionnement · Contrôles automatisés</span>
+      </div>
+    </div>
+  </div>
+  <div class="container hero__proof" aria-label="Domaines de spécialité">
+    <span>01 · Règles métier sécurisées</span>
+    <span>02 · Interfaces Angular accessibles</span>
+    <span>03 · Données et responsabilités structurées</span>
+  </div>
+</section>
