@@ -7,7 +7,7 @@ Portfolio professionnel de développeur Full Stack Java / Angular. Le site prés
 - priorité donnée aux projets et aux décisions techniques ;
 - interface sombre, sobre, responsive et accessible ;
 - monolithe frontend Angular modulaire ;
-- composants standalone et chargement paresseux des pages ;
+- architecture Angular basée sur des composants standalone et des pages chargées à la demande ;
 - contenu TypeScript typé et versionné avec le code ;
 - aucune base de données ni API sans besoin métier ;
 - métadonnées SEO par route, Open Graph, sitemap, robots et données structurées.
